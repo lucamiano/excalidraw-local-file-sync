@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excalidraw Local File Sync</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 16px;
+        width: 320px;
+        background: #f6efe7;
+        color: #23170d;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+
+      label {
+        display: block;
+        margin: 12px 0 6px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #cdb8a4;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      button {
+        flex: 1;
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 12px;
+        cursor: pointer;
+        background: #b4472c;
+        color: #fff7f3;
+        font-weight: 700;
+      }
+
+      button.secondary {
+        background: #5e5246;
+      }
+
+      .toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .toggle input {
+        width: auto;
+      }
+
+      .status {
+        margin-top: 14px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Excalidraw Local File Sync</h1>
+
+    <label for="syncIntervalMs">Polling Interval (ms)</label>
+    <input id="syncIntervalMs" type="number" min="1000" step="500" />
+
+    <label class="toggle">
+      <input id="autosyncEnabled" type="checkbox" />
+      <span>Enable autosync</span>
+    </label>
+
+    <div class="row">
+      <button id="openFile" class="secondary">Open existing file</button>
+      <button id="createFile">Create new file</button>
+    </div>
+
+    <div class="row">
+      <button id="restoreAccess" class="secondary">Restore access</button>
+    </div>
+
+    <div class="row">
+      <button id="save">Save</button>
+      <button id="syncNow" class="secondary">Sync now</button>
+    </div>
+
+    <div id="status" class="status">Loading configuration...</div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+  </html>

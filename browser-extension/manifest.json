@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Excalidraw Local File Sync",
+  "version": "0.2.0",
+  "description": "Mirror the active excalidraw.com canvas into a local .excalidraw file.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://excalidraw.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Excalidraw Local File Sync",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://excalidraw.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

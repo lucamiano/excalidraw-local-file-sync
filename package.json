@@ -1,0 +1,10 @@
+{
+  "name": "excalidraw-local-file-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome extension to sync excalidraw.com browser state to a local .excalidraw file.",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
